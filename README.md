@@ -14,6 +14,11 @@ The package is built around one sharpened question and the artifacts that show h
 - [signoff.md](signoff.md) - the final gap-closure judgment.
 - [question_sources.md](question_sources.md) - the canonical sources used in the explainer.
 
+## Public Artifacts
+
+- **Blog post:** [Why Your Instruction Gets Ignored: Attention Dynamics and Instruction Drift in LLMs](https://open.substack.com/pub/kidusgashaw/p/why-your-instruction-gets-ignored?r=8bo4le&utm_campaign=post&utm_medium=web&showWelcomeOnShare=true)
+- **Tweet thread:** [https://x.com/Kidus5T99409/status/2051633404085502442?s=20](https://x.com/Kidus5T99409/status/2051633404085502442?s=20)
+
 ## Grounding
 
 The question is grounded in the Week 10 conversion engine, especially the latency tracking gap in [agent/outreach_generator.py](c:/Users/Davea/Downloads/trp%20week%2010/agent/outreach_generator.py). The explainer focuses on separating prefill and decode latency so Time-To-First-Token can be measured directly instead of being hidden inside one coarse API timing bucket.
