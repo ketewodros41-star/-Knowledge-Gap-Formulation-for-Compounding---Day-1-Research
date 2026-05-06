@@ -22,3 +22,28 @@ The package is built around one sharpened question and the artifacts that show h
 ## Grounding
 
 The question is grounded in the Week 10 conversion engine, especially the latency tracking gap in [agent/outreach_generator.py](c:/Users/Davea/Downloads/trp%20week%2010/agent/outreach_generator.py). The explainer focuses on separating prefill and decode latency so Time-To-First-Token can be measured directly instead of being hidden inside one coarse API timing bucket.
+
+---
+
+# Pair Day 2 — Agent and Tool-Use Internals
+
+## What's Inside
+
+- [pair_DAY_2/question.md](pair_DAY_2/question.md) — Kidus's sharpened question: the difference between a scaffolding pre-call and a model-invoked tool, grounded in the bench-gated constraint in `method.md`
+- [pair_DAY_2/morning_call_summary.md](pair_DAY_2/morning_call_summary.md) — how both partners explained and sharpened each other's questions
+- [pair_DAY_2/explainer.md](pair_DAY_2/explainer.md) — Kidus's explainer for Amare's question: two failure modes inside a real agent system and the mechanism behind both
+- [pair_DAY_2/blog_post.md](pair_DAY_2/blog_post.md) — public-facing version of the explainer
+- [pair_DAY_2/thread.md](pair_DAY_2/thread.md) — 6-tweet thread compressing the explainer
+- [pair_DAY_2/evening_call_summary.md](pair_DAY_2/evening_call_summary.md) — feedback from both partners on each other's explainers
+- [pair_DAY_2/signoff.md](pair_DAY_2/signoff.md) — Amare's gap-closure judgment on Kidus's explainer
+- [pair_DAY_2/grounding_commit.md](pair_DAY_2/grounding_commit.md) — Kidus's edit to `method.md` based on what Amare's explainer revealed
+- [pair_DAY_2/sources.md](pair_DAY_2/sources.md) — canonical sources and tool used
+
+## Public Artifacts
+
+- **Blog post:** [Why Tool Outputs Get Ignored: Two Failures Inside a Real Agent System](https://kidusgashaw.substack.com/p/why-tool-outputs-get-ignored-two)
+- **Tweet thread:** [https://x.com/Kidus5T99409/status/2052066470230659446?s=20](https://x.com/Kidus5T99409/status/2052066470230659446?s=20)
+
+## Grounding
+
+Kidus's question is grounded in `agent/main.py` and `agent/enrichment.py` from the Week 10 Conversion Engine. The gap: `check_bench_availability()` was described in `method.md` as a bench-gated constraint, but was actually a scaffolding pre-call the model never controlled. Amare's explainer revealed the distinction between runtime-enforced scaffolding (deterministic) and model-invoked tools (probabilistic), which led to a rewrite of the bench-constraint paragraph in `method.md`.
