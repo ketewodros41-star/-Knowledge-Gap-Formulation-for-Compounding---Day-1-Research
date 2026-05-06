@@ -1,4 +1,4 @@
-# Today Submission
+# day 1 Submission
 
 This folder contains the pair-day submission for the Week 12 inference-time mechanics topic.
 
