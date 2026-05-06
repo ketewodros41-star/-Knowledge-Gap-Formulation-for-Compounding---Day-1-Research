@@ -1,31 +1,35 @@
-# Evening Call Summary — Day 2
+# Evening Call Summary Day 2
 
-**Written by:** Amare Kassa | **Confirmed by:** Kidus Gashaw
+Written by Amare Kassa | Confirmed by Kidus
+
+On Kidus’s explainer, the initial draft already identified the key architectural distinction between runtime-enforced scaffolding and model-invoked tool usage. However, I pushed on whether apparent “tool grounding failures” always come from the model itself, or whether some failures originate earlier in the runtime and orchestration layer.
+
+During the discussion, I asked for a clearer distinction between:
+- the model ignoring tool/context information
+vs
+- the runtime never routing structured context into generation at all.
+
+I also requested that the explanation connect more directly to the reviewed Week 10 `conversion-engine` implementation instead of remaining at a generalized “agent systems” level.
+
+In response, the explainer was revised to:
+- directly reference `process_prospect()` and the enrichment pipeline
+- explain that `check_bench_availability()` executes before generation begins
+- clarify that the runtime, not the model, owns execution authority in the reviewed architecture
+- distinguish deterministic runtime enforcement from probabilistic model reasoning
+
+The discussion became more concrete after I traced my own objection-response implementation and discovered that `reply_type="objection"` had no dedicated handling path. This caused structured context to fall through to a generic fallback response before the model could reason over the probe information.
+
+That debugging step clarified an important insight:
+
+> some apparent “LLM grounding failures” are actually runtime routing failures.
+
+The discussion also clarified why advisory prompt labels are weaker than explicit reasoning tokens. The revised explanation showed that constraints become more reliable when represented as part of the token-generation trajectory itself (via `Constraint check:`) rather than passive metadata.
+
+After revision, the explainer became much more grounded in both:
+- the reviewed Week 10 implementation
+- and my own follow-up debugging work
+
+and directly answered the original question about reliability differences between runtime scaffolding and model-invoked tools.
+
 
 ---
-
-## Feedback on Kidus's Explainer (Amare's gap — why tool outputs get ignored)
-
-Amare read the explainer Kidus wrote for his question and confirmed the gap fully closed.
-
-The first failure mode — the hardcoded fallback and missing objection case — landed clearly and was the most valuable part. Amare confirmed he had not identified this as a code-level issue before; he had been attributing the generic outputs to LLM behaviour when the model was never being called. This changes what his probe results actually prove.
-
-The mechanism section — next-token prior competing against plain-text advisory labels — gave Amare the language to explain why his policy constraints were being ignored even in cases where the LLM was called. He said he could now describe the failure precisely instead of calling it "the model ignoring context."
-
-The tool schema design section was the most useful new concept. Amare said he had not understood the difference between plain-text policy guidance and a typed tool schema as a generation constraint, and that this directly changes how he would design the probe injection layer in a future version of tenacious-bench.
-
-**Gap closure judgment on Kidus's explainer:** Fully closed.
-
----
-
-## Feedback on Amare's Explainer (Kidus's gap — scaffolding vs model-invoked tools)
-
-Kidus read the explainer Amare wrote for his question and confirmed the gap fully closed.
-
-The core distinction — runtime-enforced scaffolding versus model-controlled tool invocation — landed exactly right. The line *"Runtime scaffolding enforces constraints deterministically. Model-invoked tools enforce constraints probabilistically."* was the sentence Kidus said he could not have written for `method.md` before today.
-
-The runnable demonstration made the failure mode concrete — seeing the model generate "We should likely be able to support your timeline" despite the tool returning "Bench unavailable" showed exactly why the constraint must live in the runtime rather than in model reasoning.
-
-The comparison table and the list of what Kidus would gain and lose by switching to model-invoked tools gave him the full picture to make an informed architectural claim in `method.md` rather than an accidental one.
-
-**Gap closure judgment on Amare's explainer:** Fully closed.
