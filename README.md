@@ -72,3 +72,28 @@ Kidus's question is grounded in `agent/main.py` and `agent/enrichment.py` from t
 ## Grounding
 
 Kidus's question is grounded in `probes/target_failure_mode.md` and `method/method.md` from the Week 10 Conversion Engine — SCAP reduced signal over-claiming (P-005, trigger rate 0.70) but could not eliminate it, and the method.md never explains why a prompt-time mechanism has a ceiling that training does not. The explainer Kidus wrote is grounded in his partner's `training/train_lora_judge.py` (r=16, 51 preference pairs) and `ablations/ablation_results.json` (Delta A CI [0.0, 16.1%]), revealing that high rank on a small dataset causes the critic to memorize surface patterns of chosen examples rather than learning the rubric boundary — which led to adding a rank-justification paragraph to her `methodology_rationale.md`.
+
+---
+
+# Pair Day 4 — Evaluation and Statistics
+
+## What's Inside
+
+- [pair_DAY_4/question.md](pair_DAY_4/question.md) — Kidus's sharpened question: whether his trained Qwen2.5-1.5B judge learned rubric compliance or verbosity bias, grounded in `ablation_results.json` (Delta B=+0.3204) and `methodology_rationale.md` (chosen=Claude Sonnet rewrites, rejected=original agent failures)
+- [pair_DAY_4/morning_call_summary.md](pair_DAY_4/morning_call_summary.md) — how both partners sharpened each other's questions: Kidus's from "does my judge have length bias" to what specific pattern in existing scored outputs would distinguish the two; Mistire's from "why is p=0.585" to the MDE at n=41 and whether per-family deltas at n=7–8 qualify as signal
+- [pair_DAY_4/explainer.md](pair_DAY_4/explainer.md) — Kidus's explainer for Mistire's question: statistical power, MDE calculation, correct test for paired binary outcomes, and why per-family results at n=7–8 are exploratory observations not findings
+- [pair_DAY_4/blog_post.md](pair_DAY_4/blog_post.md) — public-facing version of the explainer
+- [pair_DAY_4/thread.md](pair_DAY_4/thread.md) — 6-tweet thread compressing the explainer
+- [pair_DAY_4/evening_call_summary.md](pair_DAY_4/evening_call_summary.md) — feedback from both partners: Mistire asked for the ρ threshold explanation; Kidus asked Mistire to reorder the per-family argument before the MDE calculation
+- [pair_DAY_4/signoff.md](pair_DAY_4/signoff.md) — Kidus's gap-closure judgment on Mistire's explainer about verbosity bias detection (closed)
+- [pair_DAY_4/grounding_commit.md](pair_DAY_4/grounding_commit.md) — Kidus's edit to `methodology_rationale.md` adding the three-test length bias check to the preference pair construction section
+- [pair_DAY_4/sources.md](pair_DAY_4/sources.md) — Dror et al. 2018 (ACL), Cohen 1988 (Statistical Power Analysis), statsmodels + scipy
+
+## Public Artifacts
+
+- **Blog post:** ["Not Significant" Is Not the Same as "Didn't Work"](https://open.substack.com/pub/kidusgashaw/p/not-significant-is-not-the-same-as?r=8bo4le&utm_campaign=post&utm_medium=web&showWelcomeOnShare=true)
+- **Tweet thread:** [https://x.com/Kidus5T99409/status/2052819653290766715?s=20](https://x.com/Kidus5T99409/status/2052819653290766715?s=20)
+
+## Grounding
+
+Kidus's question is grounded in `ablations/ablation_results.json` (Delta B=+0.3204, wins=37/40) and `methodology_rationale.md` from Week 11 — the preference pair construction section describes chosen outputs as Claude Sonnet rewrites and rejected outputs as original agent failures but contains no analysis of whether the two groups differ in length. Mistire's explainer introduced three concrete tests (Wilcoxon signed-rank on training pair lengths, Spearman ρ between output length and judge score, adversarial pair test) that can be run on existing data without retraining — leading to a grounding commit that adds the length bias check as a v0.2 prerequisite to `methodology_rationale.md`.
