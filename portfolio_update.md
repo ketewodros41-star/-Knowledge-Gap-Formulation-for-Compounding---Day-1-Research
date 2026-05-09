@@ -15,6 +15,7 @@ Four code and documentation edits made to the Tenacious Conversion Engine during
 
 **File:** `agent/outreach_generator.py`
 **Change:** Added `ttft_ms` and `tokens_per_second` telemetry fields to Langfuse traces
+**Grounding commit:** [pair_DAY_1/grounding_commit.md](pair_DAY_1/grounding_commit.md)
 
 **What it fixes:** The agent constructs dense prompts with Crunchbase firmographics, job-post velocity, layoffs.fyi data, and competitor gap briefs before generating outreach emails. Langfuse traces recorded only total API wait time. I could not tell whether latency spikes came from the model reading the long context (prefill) or writing the email (decode) — and those two phases require different optimizations.
 
@@ -28,6 +29,7 @@ Four code and documentation edits made to the Tenacious Conversion Engine during
 
 **File:** `method/method.md`
 **Change:** Rewrote the bench-constraint paragraph from "model choosing to call a tool" to "scaffolding pre-call injecting result as context"
+**Grounding commit:** [pair_DAY_2/grounding_commit.md](pair_DAY_2/grounding_commit.md)
 
 **What it fixes:** I described the bench availability check as a "bench-gated constraint" in `method.md` using language that implied the model decides whether to call a staffing tool. The actual code in `agent/main.py` runs `check_bench_availability()` unconditionally before the model receives any input — the model cannot bypass this constraint because it never owned the decision.
 
@@ -41,6 +43,7 @@ Four code and documentation edits made to the Tenacious Conversion Engine during
 
 **File:** `method/method.md`
 **Change:** Added "Why SCAP Has a Ceiling" paragraph after the SCAP mechanism description
+**Grounding commit:** [pair_DAY_3/grounding_commit.md](pair_DAY_3/grounding_commit.md)
 
 **What it fixes:** `method.md` described SCAP as "a prompt-time mechanism that directly attacks the highest-ROI failure mode that can be reduced by a prompt-time mechanism" — correct but circular. It left the ceiling unexplained, which meant the rationale for training a LoRA judge in Week 11 had no mechanistic foundation in the Week 10 artifact.
 
@@ -54,6 +57,7 @@ Four code and documentation edits made to the Tenacious Conversion Engine during
 
 **File:** `methodology_rationale.md` (Week 11 Tenacious-Bench)
 **Change:** Added "Length Bias Check" paragraph after the Preference Pair Construction section
+**Grounding commit:** [pair_DAY_4/grounding_commit.md](pair_DAY_4/grounding_commit.md)
 
 **What it fixes:** `methodology_rationale.md` described chosen outputs as DeepSeek V3.2 rewrites of failed emails and rejected outputs as original agent failures, with no analysis of whether the two groups differ in length or structural elaborateness. Delta B = +0.3204 was cited as evidence the judge learned the Tenacious rubric. I could not describe what the scores would look like differently if the judge had learned to reward output length instead.
 

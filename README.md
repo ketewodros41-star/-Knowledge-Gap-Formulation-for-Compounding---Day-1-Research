@@ -2,6 +2,12 @@
 
 Kidus Gashaw | TRP1 Challenge | Days 1–4
 
+## Final Submission Documents
+
+- [synthesis.md](synthesis.md) — 1,500-word week synthesis: gaps closed, most surprising learning, canonical reading list
+- [canonical_list.md](canonical_list.md) — annotated papers, tools, and patterns contributed to the cohort canon
+- [portfolio_update.md](portfolio_update.md) — one-page summary of how the four grounding commits improve the Week 10 and 11 portfolio
+
 ---
 
 # Pair Day 1 — Inference-Time Mechanics
