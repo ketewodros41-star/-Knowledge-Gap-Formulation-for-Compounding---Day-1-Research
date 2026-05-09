@@ -1,18 +1,20 @@
-# day 1 Submission
+# Week 12 — Knowledge Gap Formulation for Compounding
 
-This folder contains the pair-day submission for the Week 12 inference-time mechanics topic.
+Kidus Gashaw | TRP1 Challenge | Days 1–4
 
-The package is built around one sharpened question and the artifacts that show how it was refined, answered, and signed off.
+---
+
+# Pair Day 1 — Inference-Time Mechanics
 
 ## What's Inside
 
-- [question.md](question.md) - the final question for the day.
-- [morning_call_summary.md](morning_call_summary.md) - the question-sharpening notes from the morning call.
-- [explainer.md](explainer.md) - the explainer written in response to the partner's question.
-- [thread.md](thread.md) - the short public version of the explainer.
-- [evening_call_summary.md](evening_call_summary.md) - the evening call summary.
-- [signoff.md](signoff.md) - the final gap-closure judgment.
-- [sources.md](pair_DAY_1/sources.md) - the canonical sources used in the explainer.
+- [pair_DAY_1/question.md](pair_DAY_1/question.md) - the final question for the day.
+- [pair_DAY_1/morning_call_summary.md](pair_DAY_1/morning_call_summary.md) - the question-sharpening notes from the morning call.
+- [pair_DAY_1/explainer.md](pair_DAY_1/explainer.md) - the explainer written in response to the partner's question.
+- [pair_DAY_1/thread.md](pair_DAY_1/thread.md) - the short public version of the explainer.
+- [pair_DAY_1/evening_call_summary.md](pair_DAY_1/evening_call_summary.md) - the evening call summary.
+- [pair_DAY_1/signoff.md](pair_DAY_1/signoff.md) - the final gap-closure judgment.
+- [pair_DAY_1/sources.md](pair_DAY_1/sources.md) - the canonical sources used in the explainer.
 
 ## Public Artifacts
 
