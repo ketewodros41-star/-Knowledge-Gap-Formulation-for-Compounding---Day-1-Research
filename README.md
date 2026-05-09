@@ -12,7 +12,7 @@ The package is built around one sharpened question and the artifacts that show h
 - [thread.md](thread.md) - the short public version of the explainer.
 - [evening_call_summary.md](evening_call_summary.md) - the evening call summary.
 - [signoff.md](signoff.md) - the final gap-closure judgment.
-- [question_sources.md](question_sources.md) - the canonical sources used in the explainer.
+- [sources.md](pair_DAY_1/sources.md) - the canonical sources used in the explainer.
 
 ## Public Artifacts
 

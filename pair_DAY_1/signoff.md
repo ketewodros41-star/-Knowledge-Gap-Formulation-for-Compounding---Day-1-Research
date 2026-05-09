@@ -1,13 +1,16 @@
 # Sign-off Document
 
-**Explainer:** Me
-**Asker:** Partner
+**Asker:** Kidus Gashaw
+**Explainer:** Partner
 
 ## Question
-**How do attention dynamics during inference contribute to instruction drift in LLMs, and what mechanisms determine whether instructions stay salient enough to shape the final output?**
+**How do prefill and decode phases contribute differently to end-to-end latency during large-context evaluation, and what specific telemetry fields must I add to `outreach_generator.py` to isolate Time-To-First-Token when processing a dense competitor gap brief?**
 
-## Sign-off
-By signing below, I confirm that the explainer closed my practical knowledge gap. It showed why long prompts can make a distant instruction less salient at generation time, how learned instruction priority and local decoding pressure also affect override risk, how that maps onto my P-005 failures in the Tenacious Conversion Engine, and why the better test is an ablation that measures behavior directly rather than relying on attention diagrams alone.
+## Gap Closure Status: CLOSED
 
-**Signature:** __________________________
-**Date:** ______________________________
+The explainer closed my gap. I now understand that prefill is a single parallelized forward pass over all input tokens — it scales with context length and is the bottleneck when the prompt is dense. Decode is autoregressive, one token per forward pass, and scales with output length. These require different optimizations and cannot be diagnosed from a single end-to-end latency metric.
+
+The explainer gave me the two specific fields I needed: `ttft_ms` (time from API call to first decode token) and `tokens_per_second` (throughput across the decode phase). I added both to `outreach_generator.py` and Langfuse traces now isolate which phase to optimize before I touch the code.
+
+**Signed:** Kidus Gashaw
+**Date:** 2026-05-09
