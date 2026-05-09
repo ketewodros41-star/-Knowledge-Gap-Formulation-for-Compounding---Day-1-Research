@@ -1,7 +1,7 @@
 # Grounding Commit — Day 2
 
 **Asker:** Kidus Gashaw
-**Artifact edited:** `method.md` in the Week 10 Conversion Engine (`C:\Users\Davea\Downloads\trp week 10\method\method.md`)
+**Artifact edited:** `method.md` in the Week 10 Conversion Engine (`C:\Users\Davea\Downloads\trp week 10\method\method.md`) — **[commit e3c601c](https://github.com/ketewodros41-star/The-Conversion-Engine/commit/e3c601c)**
 
 **What changed:**
 

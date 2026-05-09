@@ -1,7 +1,7 @@
 # Grounding Commit — Day 1
 
 **Asker:** Kidus Gashaw
-**Artifact edited:** `agent/outreach_generator.py` in the Week 10 Conversion Engine (`C:\Users\Davea\Downloads\trp week 10\agent\outreach_generator.py`)
+**Artifact edited:** `agent/outreach_generator.py` in the Week 10 Conversion Engine (`C:\Users\Davea\Downloads\trp week 10\agent\outreach_generator.py`) — **[commit f8561db](https://github.com/ketewodros41-star/The-Conversion-Engine/commit/f8561db)**
 
 **What changed:**
 
