@@ -2,12 +2,6 @@
 
 Kidus Gashaw | TRP1 Challenge | Days 1–4
 
-## Final Submission Documents
-
-- [synthesis.md](synthesis.md) — 1,500-word week synthesis: gaps closed, most surprising learning, canonical reading list
-- [canonical_list.md](canonical_list.md) — annotated papers, tools, and patterns contributed to the cohort canon
-- [portfolio_update.md](portfolio_update.md) — one-page summary of how the four grounding commits improve the Week 10 and 11 portfolio
-
 ---
 
 # Pair Day 1 — Inference-Time Mechanics
@@ -105,3 +99,9 @@ Kidus's question is grounded in `probes/target_failure_mode.md` and `method/meth
 ## Grounding
 
 Kidus's question is grounded in `ablations/ablation_results.json` (Delta B=+0.3204, wins=37/40) and `methodology_rationale.md` from Week 11 — the preference pair construction section describes chosen outputs as Claude Sonnet rewrites and rejected outputs as original agent failures but contains no analysis of whether the two groups differ in length. Mistire's explainer introduced three concrete tests (Wilcoxon signed-rank on training pair lengths, Spearman ρ between output length and judge score, adversarial pair test) that can be run on existing data without retraining — leading to a grounding commit that adds the length bias check as a v0.2 prerequisite to `methodology_rationale.md`.
+
+## Final Submission Documents
+
+- [synthesis.md](synthesis.md) — 1,500-word week synthesis: gaps closed, most surprising learning, canonical reading list
+- [canonical_list.md](canonical_list.md) — annotated papers, tools, and patterns contributed to the cohort canon
+- [portfolio_update.md](portfolio_update.md) — one-page summary of how the four grounding commits improve the Week 10 and 11 portfolio
